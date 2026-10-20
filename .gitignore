@@ -1,9 +1,22 @@
-# Raw dataset files
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Raw datasets — keep CSV files local
 data/*.csv
 data/*.zip
 
-# Python environment and generated files
-.venv/
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
+# Generated files
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
