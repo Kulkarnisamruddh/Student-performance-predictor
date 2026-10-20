@@ -1,0 +1,9 @@
+# Raw dataset files
+data/*.csv
+data/*.zip
+
+# Python environment and generated files
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
