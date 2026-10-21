@@ -2,6 +2,12 @@
 
 A machine learning web application that predicts students' final mathematics grades using demographic, social, and academic features. Built with Python, scikit-learn, pandas, and Streamlit.
 
+## 🚀 Live Demo
+
+**Try the app here:** [Student Performance Predictor](https://student-performance-predictor-h6hejiqq5tyzkmnfbe28jf.streamlit.app/)
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://student-performance-predictor-h6hejiqq5tyzkmnfbe28jf.streamlit.app/)
+
 ## 🚀 Project Overview
 
 This project explores student performance data and trains regression models to estimate final mathematics grades (`G3`) on a scale of 0–20.
