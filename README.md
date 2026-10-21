@@ -46,6 +46,84 @@ Activate the environment, then install dependencies:
 python -m pip install -r requirements.txt
 ```
 
+## Experiments and Results
+
+### Dataset
+
+This project uses the UCI Student Performance dataset for mathematics.
+The target variable is `G3`, the final mathematics grade on a 0–20 scale.
+
+The dataset contains 395 student records and 33 columns. The
+evaluation uses an 80/20 train/test split with `random_state=42`,
+resulting in 316 training records and 79 test records.
+
+### Models
+
+Two regression algorithms were evaluated:
+
+- Linear Regression
+- Random Forest Regressor
+
+A mean-prediction baseline was included for comparison.
+
+Two feature sets were tested:
+
+1. **With earlier grades:** all features except `G3`, including `G1` and `G2`.
+2. **Without earlier grades:** all features except `G1`, `G2`, and `G3`.
+
+### Results
+
+| Feature set | Model | MAE | RMSE |
+|---|---|---:|---:|
+| Baseline | Mean predictor | 3.646 | 4.550 |
+| With G1 and G2 | Linear Regression | 1.647 | 2.378 |
+| With G1 and G2 | Random Forest | 1.198 | 2.035 |
+| Without G1 and G2 | Linear Regression | 3.395 | 4.196 |
+| Without G1 and G2 | Random Forest | 3.033 | 3.808 |
+
+Lower MAE and RMSE indicate better predictions.
+
+
+### Cross-Validation
+
+Five-fold cross-validation was performed on the training set
+(316 students), using Random Forest and mean absolute error (MAE).
+
+| Feature set | Mean CV MAE | MAE standard deviation |
+|---|---:|---:|
+| With G1 and G2 | 0.939 | 0.187 |
+| Without G1 and G2 | 2.934 | 0.296 |
+
+The model using earlier grades achieved lower average validation
+error. The fold-to-fold variation was relatively small for both
+feature sets.
+
+Cross-validation scores are distinct from the final held-out test
+results. They estimate performance across different validation
+subsets of the training data, while the test set is reserved for
+final evaluation.
+
+
+### Observations
+
+- Random Forest achieved lower MAE and RMSE than Linear Regression
+  in both feature-set experiments on this test split.
+- Earlier grades were highly informative for predicting the final grade.
+- Excluding earlier grades made the task more difficult, but Random
+  Forest still performed better than the mean baseline.
+- The results come from one train/test split and should not be
+  interpreted as guaranteed performance on other student populations.
+
+### Limitations
+
+- The dataset is relatively small and may not represent students at
+  other schools or in other regions.
+- Only one train/test split has been evaluated so far.
+- Predictive associations do not establish that a feature causes
+  better or worse academic performance.
+- Earlier grades may not be available in every intended use case.
+
+
 ## Dataset citation
 
 Cortez, P. (2008). *Student Performance* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5TG7T

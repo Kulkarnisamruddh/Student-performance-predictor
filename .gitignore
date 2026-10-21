@@ -9,9 +9,7 @@ venv/
 # Environment variables
 .env
 
-# Raw datasets — keep CSV files local
-data/*.csv
-data/*.zip
+
 
 # Generated files
 *.log
@@ -20,3 +18,4 @@ Thumbs.db
 
 # IDE
 .vscode/
+

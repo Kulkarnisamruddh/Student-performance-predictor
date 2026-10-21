@@ -1,0 +1,5 @@
+{
+    "model": "Random Forest",
+    "test_mae": 1.198362451367198,
+    "test_rmse": 2.035424049162457
+}
